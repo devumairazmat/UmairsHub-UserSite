@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 // import { GoogleLogin } from "react-google-login";
 import "./Login.css";
+import { auth } from "../../config/Config";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   const responseGoogle = (response) => {
     console.log(response);
   };

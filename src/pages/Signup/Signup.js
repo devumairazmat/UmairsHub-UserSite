@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+
+import auth from "../../config/Config";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import { GoogleLogin } from "react-google-login";
 import "./Signup.css";
 const Signup = () => {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   const responseGoogle = (response) => {
     console.log(response);
   };
@@ -12,8 +17,8 @@ const Signup = () => {
       {" "}
       <Navbar />
       <div className="signup-container mt-4 mb-4">
-        <div className="signup-outer">
-          <div className="signup-inner">
+        <div className="signup-outer mt-4 mb-4">
+          <div className="signup-inner mt-4 mb-4">
             <h2 className="signup-heading">Sign Up</h2>
             <div
               style={{
@@ -47,6 +52,7 @@ const Signup = () => {
                 className="signup-input"
                 name="mail"
                 id="email"
+                onChange={(e) => setUser(e.target.value)}
               />
             </div>
             <div
@@ -64,6 +70,7 @@ const Signup = () => {
                 className="signup-input"
                 name=""
                 id="password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div
@@ -168,7 +175,34 @@ const Signup = () => {
                 id="MobileNumber"
               />
             </div>
-            <button className="signup-button">Sign Up</button>
+            <button
+              className="signup-button"
+              onClick={async () => {
+                let data = {
+                  user: user,
+                  password: password,
+                };
+                console.log(data);
+                const auth = getAuth();
+                try {
+                  console.log(data.user, "user");
+                  const userCredential = await createUserWithEmailAndPassword(
+                    auth,
+                    data.user,
+                    data.password
+                  );
+                  const user = userCredential.user;
+                  // ...
+                  console.log(user);
+                  alert("User Registered successfully");
+                } catch (error) {
+                  console.log(error);
+                  alert("User Registration failed");
+                }
+              }}
+            >
+              Sign Up
+            </button>
 
             {/* <GoogleLogin
                         clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
