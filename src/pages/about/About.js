@@ -4,13 +4,17 @@ import Shirt1 from "../../assets/images/shirt1.jpg";
 import Shoe1 from "../../assets/images/shoe4.webp";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
+import img1 from "../../assets/images/img2.jpg";
 import "./About.css";
 
 const About = () => {
   return (
     <>
       <Navbar />
-      <div className="about-cont">
+      <div className="container-fluid">
+        <img src={img1} alt="" />
+      </div>
+      <div className="about-cont  mt-4 pt-4 ">
         <div className="cotainer-fluid">
           <h2>About Our Store</h2>
           <div className="about-inner">

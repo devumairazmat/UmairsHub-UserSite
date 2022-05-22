@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import store from "./store/Store";
 import About from "./pages/about/About";
 import Store from "./pages/store/Store";
-import Contact from "./pages/contact/contact";
+import Contact from "./pages/contact/Contact";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 const root = ReactDOM.createRoot(document.getElementById("root"));

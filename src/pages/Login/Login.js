@@ -40,8 +40,7 @@ const Login = () => {
               id="password"
             />
           </div>
-          <button className="login-button">Login</button>
-          <h3 className="login-sub-heading">Or login with</h3>
+          <button className="login-button mt-4">Login</button>
           {/* <GoogleLogin
                         clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                         buttonText="Login"
