@@ -1,0 +1,95 @@
+.signup-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #d1d5db;
+    color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-outer {
+    max-width: 700px;
+    background-color: #f3f4f6;
+    font-family: sans-serif;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.signup-inner {
+    margin-inline: 50px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.signup-heading,
+.signup-sub-heading {
+    font-weight: 500;
+}
+
+.signup-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.signup-input {
+    min-width: 300px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 0.75rem;
+    color: #374151;
+    border: none;
+    outline: none;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.signup-button {
+    background-color: #0f172a;
+    color: #f9fafb;
+    border: none;
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.signup-sub-heading {
+    align-self: flex-start;
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.google-signup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    -ms-border-radius: 4px !important;
+    -o-border-radius: 4px !important;
+    margin-bottom: 3.5rem;
+}
+.signup-inner span {
+    font-size: 14px;
+    color: #9ca3af;
+}
+.signup-inner span a {
+    text-decoration: underline;
+}
