@@ -8,7 +8,7 @@ export default function Socials(props) {
   return (
     <div className="flex" style={{ gap: "0.75rem" }}>
       <a
-        href="www.facebook.com"
+        href="https:www.facebook.com"
         className="right-icons flex"
         style={{
           backgroundColor: props.bgClr,
@@ -22,7 +22,7 @@ export default function Socials(props) {
         <RiFacebookFill style={{ color: props.clr }} />
       </a>
       <a
-        href="www.instagram.com"
+        href="https:www.instagram.com"
         className="right-icons flex"
         style={{
           backgroundColor: props.bgClr,
@@ -36,7 +36,7 @@ export default function Socials(props) {
         <RiInstagramLine style={{ color: props.clr }} />
       </a>
       <a
-        href="www.twitter.com"
+        href="https:www.twitter.com"
         className="right-icons flex"
         style={{
           backgroundColor: props.bgClr,
