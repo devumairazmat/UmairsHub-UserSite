@@ -152,10 +152,12 @@
     margin-left: 1rem;
   }
 }
-@media (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .bottom-right {
-    justify-content: space-between;
+    flex-direction: column;
   }
+}
+@media (max-width: 600px) {
   .top-right,
   .top-left {
     flex-direction: column;

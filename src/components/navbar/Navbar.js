@@ -108,7 +108,10 @@ const Navbar = (props) => {
                 >
                   Login
                 </a>
-                <AiOutlineShoppingCart style={{ fontSize: "30px" }} />
+                <AiOutlineShoppingCart
+                  style={{ height: "50px", marginLeft: "20px" }}
+                />
+                :0.00$
               </div>
 
               <div
