@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
-
 import auth from "../../config/Config";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import { GoogleLogin } from "react-google-login";

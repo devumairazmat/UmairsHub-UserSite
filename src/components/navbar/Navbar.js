@@ -8,8 +8,9 @@ import ProfilePic from "../../assets/images/man.png";
 import "./Navbar.css";
 import Socials from "../socials/Socials";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useSelector } from "react-redux";
 const Navbar = (props) => {
-  const [profile, setProfile] = useState(false);
+  const isUser = useSelector((state) => state.isUser.value);
   const [activeNav, setActiveNav] = useState("home");
   return (
     <header style={{ marginBottom: "0" }}>
@@ -89,7 +90,7 @@ const Navbar = (props) => {
                   </li>
                 </ul>
               </nav>
-              <div className={`buttons ${profile ? "buttonsHide" : ""}`}>
+              <div className={`buttons ${isUser ? "buttonsHide" : ""}`}>
                 <a
                   href="/signup"
                   className="btn-outline transition btn-shadow"
@@ -115,7 +116,7 @@ const Navbar = (props) => {
               </div>
 
               <div
-                className={`profile ${profile ? "" : "profileHide"}`}
+                className={`profile ${isUser ? "" : "profileHide"}`}
                 style={{
                   alignItems: "center",
                   gap: "22px",
@@ -156,13 +157,10 @@ const Navbar = (props) => {
                           Umair's Store
                         </li>
                         <li className="upper-items bold fs-200 clr-black-main">
-                          Minha Estadia
+                          Favourites
                         </li>
                         <li className="upper-items bold fs-200 clr-black-main">
-                          Favoritos
-                        </li>
-                        <li className="upper-items bold fs-200 clr-black-main">
-                          Caixa de Entrada (5)
+                          Inbox (5)
                         </li>
                         <li className="upper-items bold fs-200 clr-black-main">
                           Notifications (3)
@@ -174,9 +172,8 @@ const Navbar = (props) => {
                             backgroundColor: "#505046",
                           }}
                         ></li>
-                        <li className="fs-100 clr-black-extralight">Conta</li>
-                        <li className="fs-100 clr-black-extralight">Ajuda</li>
-                        <li className="fs-100 clr-black-extralight">Sair</li>
+                        <li className="fs-100 clr-black-extralight">Account</li>
+                        <li className="fs-100 clr-black-extralight">Help</li>
                       </ul>
                     </li>
                   </ul>

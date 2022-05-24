@@ -2,15 +2,20 @@ import React, { useState } from "react";
 // import { GoogleLogin } from "react-google-login";
 import "./Login.css";
 import { auth } from "../../config/Config";
+import { useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { setTrue } from "../../store/features/isUserSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [userData, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const responseGoogle = (response) => {
     console.log(response);
   };
@@ -67,9 +72,12 @@ const Login = () => {
                   userData,
                   password
                 );
-
+                console.log(userCredential);
                 const user = userCredential.user;
+                dispatch(setTrue());
+                navigate("/");
                 alert("Login successful");
+
                 // ...
               } catch (error) {
                 console.log(error);
