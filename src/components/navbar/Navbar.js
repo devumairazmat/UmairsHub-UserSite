@@ -9,14 +9,14 @@ import "./Navbar.css";
 import Socials from "../socials/Socials";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 const Navbar = (props) => {
   const isUser = useSelector((state) => state.isUser.value);
   const amount = useSelector((state) => state.cart.value.length);
   const [activeNav, setActiveNav] = useState("home");
   return (
     <header style={{ marginBottom: "0" }}>
-      <div className="nav-container">
+      <div className="nav-container ">
         <div className="nav-inner">
           <div className="top" onClick={console.log("clickedHere")}>
             <div className="top-left flex">
@@ -111,14 +111,16 @@ const Navbar = (props) => {
                 >
                   Login
                 </a>
-                <AiOutlineShoppingCart
-                  style={{
-                    height: "50px",
-                    marginLeft: "20px",
-                    marginRight: "10px",
-                  }}
-                />
-                {amount}
+                <Link to="/cart">
+                  <AiOutlineShoppingCart
+                    style={{
+                      height: "50px",
+                      marginLeft: "20px",
+                      marginRight: "10px",
+                    }}
+                  />
+                  {amount}
+                </Link>
               </div>
 
               <div
