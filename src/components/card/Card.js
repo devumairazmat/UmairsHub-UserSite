@@ -7,6 +7,7 @@ import {
   removeFromCart,
   clearCart,
 } from "../../store/features/cartSlice";
+import { nanoid } from "@reduxjs/toolkit";
 function Card(props) {
   const dispatch = useDispatch();
   console.log(props);
@@ -27,9 +28,12 @@ function Card(props) {
             onClick={() => {
               dispatch(
                 addToCart({
+                  id: nanoid(),
                   img: props.img,
                   title: props.title,
                   price: props.price,
+                  qty: 1,
+                  finalPrice: props.price,
                   description: props.description,
                 })
               );
