@@ -1,10 +1,28 @@
 import React from "react";
 import Card from "../card/Card";
-import Feedback from "../feedback/Feedback";
+import { doc, getDocFromCache, collection, getDocs } from "firebase/firestore";
+import { db } from "../../config/Config";
 import shirt1 from "../../assets/images/shirt1.jpg";
 import pant from "../../assets/images/pant2.jpg";
 import shoes from "../../assets/images/soe4.jpg";
+
 function Store() {
+  const [products, setProducts] = React.useState([]);
+  const getData = async () => {
+    let tempData = [];
+    const querySnapshot = await getDocs(collection(db, "cartData"));
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+      let allData = { ...doc.data(), id: doc.id };
+      tempData.push(allData);
+    });
+    setProducts(tempData);
+  };
+  React.useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
       <div id="cont-bak" className="container bg-light mt-4 mb-4">
@@ -35,30 +53,17 @@ function Store() {
       </div>
       <div className="container mt-4 mb-4">
         <div className="row">
-          <div className="col">
-            <Card
-              img={pant}
-              title="Pant"
-              description="Hanes Men's 12 Pack Crew Socks, White, 10-13/Shoe Size 6-12, 10-13 / Shoe: 6-12"
-              price="20.00$"
-            />
-          </div>
-          <div className="col">
-            <Card
-              img={shoes}
-              title="Shoes"
-              description="Hanes Men's 12 Pack Crew Socks, White, 10-13/Shoe Size 6-12, 10-13 / Shoe: 6-12"
-              price="20.00$"
-            />
-          </div>
-          <div className="col">
-            <Card
-              img={shirt1}
-              title="Shirt"
-              description="Hanes Men's 12 Pack Crew Socks, White, 10-13/Shoe Size 6-12, 10-13 / Shoe: 6-12"
-              price="20.00$"
-            />
-          </div>
+          {products.map((product) => (
+            <div className="col-md-4">
+              <Card
+                key={product.id}
+                img={product.img}
+                title={product.title}
+                price={product.price}
+                description={product.description}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </>
