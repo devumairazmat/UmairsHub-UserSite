@@ -2,6 +2,8 @@ import React from "react";
 import Card from "../card/Card";
 import Feedback from "../feedback/Feedback";
 import shirt1 from "../../assets/images/shirt1.jpg";
+import pant from "../../assets/images/pant2.jpg";
+import shoes from "../../assets/images/soe4.jpg";
 function Store() {
   return (
     <>
@@ -35,15 +37,16 @@ function Store() {
         <div className="row">
           <div className="col">
             <Card
-              img={shirt1}
+              img={pant}
+              title="Pant"
               description="Hanes Men's 12 Pack Crew Socks, White, 10-13/Shoe Size 6-12, 10-13 / Shoe: 6-12"
               price="20.00$"
             />
           </div>
           <div className="col">
             <Card
-              img={shirt1}
-              title="Shoe"
+              img={shoes}
+              title="Shoes"
               description="Hanes Men's 12 Pack Crew Socks, White, 10-13/Shoe Size 6-12, 10-13 / Shoe: 6-12"
               price="20.00$"
             />
@@ -58,7 +61,6 @@ function Store() {
           </div>
         </div>
       </div>
-      <Feedback />
     </>
   );
 }
