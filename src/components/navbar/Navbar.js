@@ -9,8 +9,10 @@ import "./Navbar.css";
 import Socials from "../socials/Socials";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
+
 const Navbar = (props) => {
   const isUser = useSelector((state) => state.isUser.value);
+  const amount = useSelector((state) => state.cart.value.length);
   const [activeNav, setActiveNav] = useState("home");
   return (
     <header style={{ marginBottom: "0" }}>
@@ -110,9 +112,13 @@ const Navbar = (props) => {
                   Login
                 </a>
                 <AiOutlineShoppingCart
-                  style={{ height: "50px", marginLeft: "20px" }}
+                  style={{
+                    height: "50px",
+                    marginLeft: "20px",
+                    marginRight: "10px",
+                  }}
                 />
-                :0.00$
+                {amount}
               </div>
 
               <div
