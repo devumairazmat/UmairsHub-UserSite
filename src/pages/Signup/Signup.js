@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
-import auth from "../../config/Config";
+import auth, { db } from "../../config/Config";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getDocs, addDoc, collection } from "firebase/firestore";
 // import { GoogleLogin } from "react-google-login";
 import "./Signup.css";
 const Signup = () => {
   const [user, setUser] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [city, setCity] = useState("");
+  const [zip, setZip] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [country, setCountry] = useState("");
+  const [address, setAddress] = useState("");
+  const [state, setState] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
   const responseGoogle = (response) => {
     console.log(response);
   };
@@ -34,6 +43,7 @@ const Signup = () => {
                 className="signup-input"
                 name="name"
                 id="name"
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div
@@ -104,6 +114,7 @@ const Signup = () => {
                 className="signup-input"
                 name="country"
                 id="password"
+                onChange={(e) => setCountry(e.target.value)}
               />
             </div>
             <div
@@ -121,6 +132,7 @@ const Signup = () => {
                 className="signup-input"
                 name="State"
                 id="state"
+                onChange={(e) => setState(e.target.value)}
               />
             </div>
             <div
@@ -138,6 +150,7 @@ const Signup = () => {
                 className="signup-input"
                 name=" City"
                 id=" city"
+                onChange={(e) => setCity(e.target.value)}
               />
             </div>
             <div
@@ -155,6 +168,7 @@ const Signup = () => {
                 className="signup-input"
                 name="Postal Code"
                 id="PostalCode"
+                onChange={(e) => setPostalCode(e.target.value)}
               />
             </div>
             <div
@@ -172,6 +186,7 @@ const Signup = () => {
                 className="signup-input"
                 name="Mobile Number"
                 id="MobileNumber"
+                onChange={(e) => setMobileNumber(e.target.value)}
               />
             </div>
             <button
@@ -191,6 +206,19 @@ const Signup = () => {
                     data.password
                   );
                   const user = userCredential.user;
+                  let dbData = {
+                    name: name,
+                    email: data.user,
+                    phone: mobileNumber,
+                    address: city,
+                    city: city,
+                    state: state,
+                    zip: postalCode,
+                    country: country,
+                    postalCode: postalCode,
+                  };
+                  const dbUpdate = await addDoc(collection(db, "user"), dbData);
+                  console.log("dbUpdate", dbUpdate);
                   // ...
                   console.log(user);
                   alert("User Registered successfully");
